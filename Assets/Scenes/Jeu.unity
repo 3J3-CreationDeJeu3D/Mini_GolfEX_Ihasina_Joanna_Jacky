@@ -2154,6 +2154,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd260477b4fd3447b207f9c15b85f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Balle
+  forceTir: 0
+  accumulateurForce: 0.1
+  jaugeForce: {fileID: 314902695}
+  tirActions:
+    m_Name: Tir Actions
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1f6674c9-edda-4aad-9f4a-874ed2f098ef
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+    m_Priority: 0
 --- !u!1 &1426575551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,6 +2386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8845dc5e0485a68458cdf40aa3785f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TourneMoulin
+  axeRotation: {x: 0, y: 0, z: 1}
+  vitesse: 90
 --- !u!1001 &1494354901
 PrefabInstance:
   m_ObjectHideFlags: 0
