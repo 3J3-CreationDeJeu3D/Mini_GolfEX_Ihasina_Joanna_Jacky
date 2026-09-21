@@ -67,5 +67,8 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Mini_GolfEX_Ihasina_Joanna_Jacky.slnx"
+    "dotnet.defaultSolution": "Mini_GolfEX_Ihasina_Joanna_Jacky.slnx",
+    "csharp-dev-tools.solutionViewer.selectedWorkspaceSolutions": [
+        "Mini_GolfEX_Ihasina_Joanna_Jacky.slnx"
+    ]
 }
