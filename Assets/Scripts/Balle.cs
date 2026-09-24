@@ -1,9 +1,9 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using TMPro;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
  
 public class Balle : MonoBehaviour
 {
@@ -93,7 +93,9 @@ public class Balle : MonoBehaviour
     {
         if (collision.gameObject.tag == "horsParcours")
         {
-            // sert à arrêter l'objet
+
+
+            
             audioSourceBalle.PlayOneShot(sonFin);
             rigidbody.linearVelocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
@@ -113,7 +115,7 @@ public class Balle : MonoBehaviour
  
  
             transform.position = collision.transform.position;
-            GestionnaireJeu.instance.TerminerJeu();
+            GestionnaireDeJeu.instance.TerminerJeu();
             Debug.Log("fin");
         }
     }
@@ -125,13 +127,13 @@ public class Balle : MonoBehaviour
         Debug.Log("Debut");
         peutJouer = false;
         lineRendererBalle.enabled = false;
-        yield return new WaitForFixedUpdate(); //Attends de calculer la physique
-        // yield return new WaitForSeconds(2);
+        yield return new WaitForFixedUpdate(); 
+  
         float vitesse = rigidbody.linearVelocity.magnitude;
         while (vitesse > 0.1f)
         {
             vitesse = rigidbody.linearVelocity.magnitude;
-            yield return null; //attends au prochain frame    
+            yield return null; //attends au prochain
         }
  
         peutJouer = true;
@@ -160,7 +162,7 @@ public class Balle : MonoBehaviour
  
     void SauvegarderScore()
     {
-        // si frapperBalle = true, ++
+    
  
     }
  
