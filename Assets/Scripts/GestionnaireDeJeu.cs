@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GestionnaireDeJeu : MonoBehaviour
 {
-    public GameObject instance;
+     public static GestionnaireDeJeu instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
