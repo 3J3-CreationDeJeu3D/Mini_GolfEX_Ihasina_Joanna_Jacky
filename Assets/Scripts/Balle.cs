@@ -32,6 +32,7 @@ public class Balle : MonoBehaviour
     [SerializeField] InputAction tirAction;
 
     [SerializeField] InputAction angleAction;
+    private bool peutJouer;
 
     // [Header("Composant")]
 
@@ -54,6 +55,7 @@ public class Balle : MonoBehaviour
     void Update()
    
     {
+        if (peutJouer == true){
          angle += angleAction.ReadValue<float>();
          Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.forward;
         if (tirAction.WasPressedThisFrame())
@@ -77,6 +79,7 @@ public class Balle : MonoBehaviour
             forceTir = 0;
             jaugeForce.value = forceTir;
             nbCoups++;
+        }
         }
 
     }
@@ -106,10 +109,18 @@ public class Balle : MonoBehaviour
     }
 
 
-    // IEnumerator FinJeu()
-    // {
+     IEnumerator AttendreFinCoup()
+     {
+        lineRendererBalle.enabled = false;
+        yield return new WaitForFixedUpdate();
 
-    // }
+        float vitesse = rigidbodyBalle.linearVelocity.magnitude;
+       while (vitesse > 0.1f)
+        {
+            vitesse = rigidbodyBalle.linearVelocity.magnitude;
+             yield return null;
+        }
+     }
 
     void SauvegarderScore()
     {
