@@ -1,7 +1,7 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using TMPro;
 
 public class MenuIntro : MonoBehaviour
 {
@@ -23,6 +23,7 @@ public class MenuIntro : MonoBehaviour
     }
     public void Demarrer()
     {
+        SceneManager.LoadScene("Jeu");
     }
 }
 

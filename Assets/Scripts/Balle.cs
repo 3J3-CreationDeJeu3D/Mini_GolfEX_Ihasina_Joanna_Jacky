@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
- 
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
+
 public class Balle : MonoBehaviour
 {
     [Header("État de jeu")]
@@ -47,8 +50,15 @@ public class Balle : MonoBehaviour
         audioSourceBalle = GetComponent<AudioSource>();
         nbCoups = 0;
         MettreAJourUI();
-        peutJouer = true;
- 
+   
+
+        if (PlayerPrefs.HasKey("dernierePosition"))
+        {
+string positionJson = PlayerPrefs.GetString("dernierePosition");
+transform.position = JsonUtility.FromJson<Vector3>(positionJson);
+        }
+
+             peutJouer = true;
     }
  
     void Update()
@@ -83,7 +93,10 @@ public class Balle : MonoBehaviour
  
                 forceTir = 0;
                 jaugeForce.value = forceTir;
-                //TODO appeler la coroutine
+
+                string positionJSON = JsonUtility.ToJson(transform.position);
+                PlayerPrefs.SetString("dernierePosition", positionJSON);
+                
                 StartCoroutine(AttendreFinCoup());
             }
         }
@@ -117,6 +130,7 @@ public class Balle : MonoBehaviour
             transform.position = collision.transform.position;
             PlayerPrefs.SetInt("score", nbCoups);
             GestionnaireDeJeu.instance.TerminerJeu();
+            PlayerPrefs.DeleteKey("dernierePosition");
             SceneManager.LoadScene("Intro");
             Debug.Log("fin");
         }
@@ -181,4 +195,4 @@ public class Balle : MonoBehaviour
         tirAction.Disable();
         angleAction.Disable();
     }
-}
+}   
