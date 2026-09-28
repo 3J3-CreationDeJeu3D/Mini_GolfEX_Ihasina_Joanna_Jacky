@@ -53,7 +53,7 @@ public class Balle : MonoBehaviour
  
     void Update()
     {
-        if (peutJouer == true && GestionnaireJeu.instance.etat == EtatJeu.jeu)
+        if (peutJouer == true && GestionnaireDeJeu.instance.etat == EtatJeu.jeu)
         {
             angle += angleAction.ReadValue<float>();
             Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.forward;
@@ -112,10 +112,12 @@ public class Balle : MonoBehaviour
             rigidbody.linearVelocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
             rigidbody.useGravity = false;
- 
- 
+
+
             transform.position = collision.transform.position;
+            PlayerPrefs.SetInt("score", nbCoups);
             GestionnaireDeJeu.instance.TerminerJeu();
+            SceneManager.LoadScene("Intro");
             Debug.Log("fin");
         }
     }
