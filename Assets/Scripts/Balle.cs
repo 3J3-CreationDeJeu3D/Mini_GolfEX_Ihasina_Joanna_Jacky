@@ -49,6 +49,7 @@ public class Balle : MonoBehaviour
         lineRendererBalle = GetComponent<LineRenderer>();
         audioSourceBalle = GetComponent<AudioSource>();
         nbCoups = 0;
+        peutJouer = true;
         MettreAJourUI();
    
 

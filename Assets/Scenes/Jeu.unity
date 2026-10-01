@@ -860,9 +860,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.41
+  far clip plane: 1001.2
+  field of view: 48.2
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -888,7 +888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3063578, y: -0.271685, z: 0.09169613, w: 0.9077026}
+  m_LocalRotation: {x: 0.30395132, y: -0.27437463, z: 0.09969287, w: 0.90685916}
   m_LocalPosition: {x: 5.8759995, y: 1.226, z: -8.141998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1623,6 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f5337c6592329459ab48fc5c45f464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestionnaireDeJeu
+  etat: 0
 --- !u!4 &714818194
 Transform:
   m_ObjectHideFlags: 0
@@ -2360,16 +2361,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd260477b4fd3447b207f9c15b85f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Balle
-  NbrCoups: {fileID: 0}
   nbCoups: 0
-  SonErreur: {fileID: 0}
-  sonFin: {fileID: 0}
+  peutJouer: 0
   forceTir: 0
+  rigidbody: {fileID: 0}
   angle: 0
   accumulateurForce: 0.1
   jaugeForce: {fileID: 314902695}
+  forceMin: 0
+  forceMax: 100
   tirAction:
-    m_Name: 
+    m_Name: Tir
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: e6128165-0112-4b1f-b744-f31959a64ebf
@@ -2379,7 +2381,7 @@ MonoBehaviour:
     m_Flags: 0
     m_Priority: 0
   angleAction:
-    m_Name: 
+    m_Name: Angle
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: bf246867-6ee2-407e-acdf-032242e836cc
@@ -2388,6 +2390,9 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
     m_Priority: 0
+  sonFin: {fileID: 8300000, guid: 008b25843b3d82e49a2accdedeb41c34, type: 3}
+  sonErreur: {fileID: 8300000, guid: 5f774e1939c0c7d4fa140b3e362ef8b6, type: 3}
+  texteCoups: {fileID: 1257783338}
 --- !u!1 &1426575551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,11 +2739,11 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 48.2
     OrthographicSize: 5
-    NearClipPlane: 0.3
-    FarClipPlane: 1000
-    Dutch: 0
+    NearClipPlane: 0.41
+    FarClipPlane: 1001.2
+    Dutch: 1.01
     ModeOverride: 0
     PhysicalProperties:
       GateFit: 2
